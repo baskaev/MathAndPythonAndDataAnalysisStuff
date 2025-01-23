@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 3: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+        .formula {
+            font-size: 1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 3: Уравнения математической физики</h2>
+
+<h3>1. Задачи колебаний стержня</h3>
+
+<p><strong>Что такое стержень?</strong></p>
+<p>Стержень — это длинный, тонкий, упругий объект, который может колебаться. Колебания стержня описываются волновым уравнением, аналогично колебаниям струны, но с учетом поперечных или продольных деформаций.</p>
+
+<p><strong>Физические предположения:</strong></p>
+<ol>
+    <li>Стержень однородный (плотность \( \rho \) постоянна).</li>
+    <li>Модуль упругости \( E \) постоянен.</li>
+    <li>Отклонения стержня малы, поэтому углы наклона малы.</li>
+</ol>
+
+<p><strong>Уравнение колебаний стержня:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^4 u}{\partial x^4},
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, t) \) — отклонение стержня от положения равновесия,</li>
+    <li>\( c = \sqrt{\frac{E}{\rho}} \) — скорость распространения волн в стержне.</li>
+</ul>
+
+<p><strong>Граничные условия:</strong></p>
+<ul>
+    <li><strong>Закрепленный конец:</strong>
+        <p class="formula">
+            \[
+            u(0, t) = 0, \quad \frac{\partial u}{\partial x}(0, t) = 0.
+            \]
+        </p>
+    </li>
+    <li><strong>Свободный конец:</strong>
+        <p class="formula">
+            \[
+            \frac{\partial^2 u}{\partial x^2}(L, t) = 0, \quad \frac{\partial^3 u}{\partial x^3}(L, t) = 0.
+            \]
+        </p>
+    </li>
+</ul>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<p>Предположим, что решение имеет вид:</p>
+<p class="formula">
+    \[
+    u(x, t) = X(x) T(t).
+    \]
+</p>
+<p>Подставим в уравнение:</p>
+<p class="formula">
+    \[
+    X(x) T''(t) = c^2 X''''(x) T(t).
+    \]
+</p>
+<p>Разделим на \( X(x) T(t) \):</p>
+<p class="formula">
+    \[
+    \frac{T''(t)}{c^2 T(t)} = \frac{X''''(x)}{X(x)} = -\lambda.
+    \]
+</p>
+<p>Получаем два обыкновенных дифференциальных уравнения:</p>
+<ol>
+    <li>Для \( X(x) \):
+        <p class="formula">
+            \[
+            X''''(x) + \lambda X(x) = 0.
+            \]
+        </p>
+    </li>
+    <li>Для \( T(t) \):
+        <p class="formula">
+            \[
+            T''(t) + \lambda c^2 T(t) = 0.
+            \]
+        </p>
+    </li>
+</ol>
+<p>Решив эти уравнения, можно найти общее решение.</p>
+
+<h3>2. Краевые задачи без начальных условий</h3>
+
+<p><strong>Что такое краевая задача?</strong></p>
+<p>Краевая задача — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее определенным условиям на границах области. В случае без начальных условий, задача решается только на основе граничных условий.</p>
+
+<p><strong>Пример: Уравнение Лапласа:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+    \]
+</p>
+
+<p><strong>Граничные условия:</strong></p>
+<ol>
+    <li>На левой границе (\( x = 0 \)):
+        <p class="formula">
+            \[
+            u(0, y) = f(y).
+            \]
+        </p>
+    </li>
+    <li>На правой границе (\( x = L \)):
+        <p class="formula">
+            \[
+            u(L, y) = g(y).
+            \]
+        </p>
+    </li>
+    <li>На нижней границе (\( y = 0 \)):
+        <p class="formula">
+            \[
+            u(x, 0) = h(x).
+            \]
+        </p>
+    </li>
+    <li>На верхней границе (\( y = H \)):
+        <p class="formula">
+            \[
+            u(x, H) = k(x).
+            \]
+        </p>
+    </li>
+</ol>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<p>Предположим, что решение имеет вид:</p>
+<p class="formula">
+    \[
+    u(x, y) = X(x) Y(y).
+    \]
+</p>
+<p>Подставим в уравнение Лапласа:</p>
+<p class="formula">
+    \[
+    X''(x) Y(y) + X(x) Y''(y) = 0.
+    \]
+</p>
+<p>Разделим на \( X(x) Y(y) \):</p>
+<p class="formula">
+    \[
+    \frac{X''(x)}{X(x)} = -\frac{Y''(y)}{Y(y)} = -\lambda.
+    \]
+</p>
+<p>Получаем два обыкновенных дифференциальных уравнения:</p>
+<ol>
+    <li>Для \( X(x) \):
+        <p class="formula">
+            \[
+            X''(x) + \lambda X(x) = 0.
+            \]
+        </p>
+    </li>
+    <li>Для \( Y(y) \):
+        <p class="formula">
+            \[
+            Y''(y) - \lambda Y(y) = 0.
+            \]
+        </p>
+    </li>
+</ol>
+<p>Решив эти уравнения, можно найти общее решение.</p>
+
+<h3>Итог</h3>
+<p><strong>1. Задачи колебаний стержня:</strong></p>
+<ul>
+    <li>Уравнение колебаний стержня: \( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^4 u}{\partial x^4} \).</li>
+    <li>Граничные условия.</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+<p><strong>2. Краевые задачи без начальных условий:</strong></p>
+<ul>
+    <li>Уравнение Лапласа: \( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \).</li>
+    <li>Граничные условия.</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+</body>
+</html>

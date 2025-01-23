@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шпаргалка по дифференциальным уравнениям</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #ccc;
+            margin: 10px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Шпаргалка по дифференциальным уравнениям</h1>
+
+<div class="section">
+    <h2>1. Основные типы дифференциальных уравнений</h2>
+    <ul>
+        <li><strong>Обыкновенные дифференциальные уравнения (ОДУ):</strong> Уравнения, содержащие одну независимую переменную и производные искомой функции по этой переменной.</li>
+        <li><strong>Дифференциальные уравнения в частных производных (УРЧП):</strong> Уравнения, содержащие несколько независимых переменных и частные производные искомой функции.</li>
+        <li><strong>Линейные дифференциальные уравнения:</strong> Уравнения, в которых искомая функция и её производные входят линейно.</li>
+        <li><strong>Неоднородные дифференциальные уравнения:</strong> Уравнения, содержащие ненулевую функцию в правой части.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>2. Методы решения ОДУ</h2>
+    <ul>
+        <li><strong>Метод разделения переменных:</strong> Применяется для уравнений вида <code>dy/dx = f(x)g(y)</code>.</li>
+        <li><strong>Метод интегрирующего множителя:</strong> Используется для линейных уравнений первого порядка.</li>
+        <li><strong>Метод вариации постоянных:</strong> Применяется для решения неоднородных линейных уравнений.</li>
+        <li><strong>Метод характеристик:</strong> Используется для решения линейных уравнений в частных производных.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>3. Пример решения дифференциального уравнения</h2>
+    <div class="example">
+        <p><strong>Задача:</strong> Решить дифференциальное уравнение <code>dy/dx + y = e^x</code>.</p>
+        <p><strong>Решение:</strong></p>
+        <ol>
+            <li>Запишем уравнение в стандартной форме:
+                <code>dy/dx + y = e^x</code>.
+            </li>
+            <li>Найдем интегрирующий множитель:
+                <code>μ(x) = e^(∫1 dx) = e^x</code>.
+            </li>
+            <li>Умножим обе части уравнения на интегрирующий множитель:
+                <code>e^x dy/dx + e^x y = e^(2x)</code>.
+            </li>
+            <li>Левая часть уравнения является производной произведения:
+                <code>d/dx (e^x y) = e^(2x)</code>.
+            </li>
+            <li>Проинтегрируем обе части:
+                <code>e^x y = ∫e^(2x) dx = (1/2)e^(2x) + C</code>.
+            </li>
+            <li>Найдем общее решение:
+                <code>y = (1/2)e^x + C e^(-x)</code>.
+            </li>
+        </ol>
+        <p><strong>Ответ:</strong> <code>y = (1/2)e^x + C e^(-x)</code>, где <code>C</code> — произвольная постоянная.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>4. Полезные формулы</h2>
+    <ul>
+        <li><strong>Линейное ОДУ первого порядка:</strong> <code>dy/dx + P(x)y = Q(x)</code>.</li>
+        <li><strong>Интегрирующий множитель:</strong> <code>μ(x) = e^(∫P(x) dx)</code>.</li>
+        <li><strong>Общее решение линейного ОДУ:</strong> <code>y = (1/μ(x)) ∫μ(x)Q(x) dx + C</code>.</li>
+    </ul>
+</div>
+
+</body>
+</html>

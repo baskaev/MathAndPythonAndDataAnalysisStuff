@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 1: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            margin: 15px 0;
+        }
+        .formula {
+            font-size: 1.1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 1: Уравнения математической физики</h2>
+
+<h2>1. Классификация уравнений с частными производными второго порядка</h2>
+
+<h3>Что такое уравнение с частными производными?</h3>
+<p>Уравнение с частными производными — это уравнение, в котором неизвестная функция зависит от нескольких переменных, и в уравнении присутствуют её производные по этим переменным.</p>
+
+<p><strong>Пример:</strong></p>
+<div class="example">
+    Пусть \( u(x, y) \) — это функция двух переменных \( x \) и \( y \). Тогда уравнение:
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} = 0
+        \]
+    </p>
+    — это уравнение с частными производными первого порядка (потому что производные первого порядка).
+</div>
+
+<h3>Общий вид уравнения второго порядка</h3>
+<p>Уравнение с частными производными второго порядка с двумя переменными \( x \) и \( y \) имеет вид:</p>
+<p class="formula">
+    \[
+    A(x, y) \frac{\partial^2 u}{\partial x^2} + 2B(x, y) \frac{\partial^2 u}{\partial x \partial y} + C(x, y) \frac{\partial^2 u}{\partial y^2} + D(x, y) \frac{\partial u}{\partial x} + E(x, y) \frac{\partial u}{\partial y} + F(x, y) u = G(x, y),
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( A, B, C, D, E, F, G \) — функции, которые могут зависеть от \( x \) и \( y \),</li>
+    <li>\( u(x, y) \) — неизвестная функция, которую мы ищем.</li>
+</ul>
+
+<h3>Как классифицировать уравнение?</h3>
+<p>Классификация основана на <strong>дискриминанте</strong> \( D \), который вычисляется по формуле:</p>
+<p class="formula">
+    \[
+    D = B^2 - AC.
+    \]
+</p>
+<p>В зависимости от значения \( D \), уравнение может быть:</p>
+<ol>
+    <li><strong>Гиперболическим</strong> (\( D > 0 \)),</li>
+    <li><strong>Параболическим</strong> (\( D = 0 \)),</li>
+    <li><strong>Эллиптическим</strong> (\( D < 0 \)).</li>
+</ol>
+
+<h3>1.1. Гиперболические уравнения (\( D > 0 \))</h3>
+<p>Эти уравнения описывают процессы, связанные с волнами, например, колебания струны или распространение звука.</p>
+
+<p><strong>Пример 1: Волновое уравнение</strong></p>
+<div class="example">
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial t^2} - c^2 \frac{\partial^2 u}{\partial x^2} = 0.
+        \]
+    </p>
+    <p>Здесь:</p>
+    <ul>
+        <li>\( u(x, t) \) — отклонение струны от положения равновесия,</li>
+        <li>\( c \) — скорость распространения волны.</li>
+    </ul>
+    <p><strong>Шаг 1: Найдем коэффициенты \( A, B, C \).</strong></p>
+    <p>Сравним с общим видом:</p>
+    <p class="formula">
+        \[
+        A = 1, \quad B = 0, \quad C = -c^2.
+        \]
+    </p>
+    <p><strong>Шаг 2: Вычислим дискриминант \( D \).</strong></p>
+    <p class="formula">
+        \[
+        D = B^2 - AC = 0 - (1 \cdot (-c^2)) = c^2 > 0.
+        \]
+    </p>
+    <p><strong>Вывод:</strong> Уравнение гиперболическое.</p>
+</div>
+
+<h3>1.2. Параболические уравнения (\( D = 0 \))</h3>
+<p>Эти уравнения описывают процессы, связанные с теплопроводностью или диффузией.</p>
+
+<p><strong>Пример 2: Уравнение теплопроводности</strong></p>
+<div class="example">
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} - \alpha \frac{\partial^2 u}{\partial x^2} = 0.
+        \]
+    </p>
+    <p>Здесь:</p>
+    <ul>
+        <li>\( u(x, t) \) — температура в точке \( x \) в момент времени \( t \),</li>
+        <li>\( \alpha \) — коэффициент теплопроводности.</li>
+    </ul>
+    <p><strong>Шаг 1: Найдем коэффициенты \( A, B, C \).</strong></p>
+    <p>Сравним с общим видом:</p>
+    <p class="formula">
+        \[
+        A = 0, \quad B = 0, \quad C = -\alpha.
+        \]
+    </p>
+    <p><strong>Шаг 2: Вычислим дискриминант \( D \).</strong></p>
+    <p class="formula">
+        \[
+        D = B^2 - AC = 0 - (0 \cdot (-\alpha)) = 0.
+        \]
+    </p>
+    <p><strong>Вывод:</strong> Уравнение параболическое.</p>
+</div>
+
+<h3>1.3. Эллиптические уравнения (\( D < 0 \))</h3>
+<p>Эти уравнения описывают стационарные процессы, например, распределение температуры в равновесии или потенциал электростатического поля.</p>
+
+<p><strong>Пример 3: Уравнение Лапласа</strong></p>
+<div class="example">
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+        \]
+    </p>
+    <p>Здесь:</p>
+    <ul>
+        <li>\( u(x, y) \) — потенциал или температура в точке \( (x, y) \).</li>
+    </ul>
+    <p><strong>Шаг 1: Найдем коэффициенты \( A, B, C \).</strong></p>
+    <p>Сравним с общим видом:</p>
+    <p class="formula">
+        \[
+        A = 1, \quad B = 0, \quad C = 1.
+        \]
+    </p>
+    <p><strong>Шаг 2: Вычислим дискриминант \( D \).</strong></p>
+    <p class="formula">
+        \[
+        D = B^2 - AC = 0 - (1 \cdot 1) = -1 < 0.
+        \]
+    </p>
+    <p><strong>Вывод:</strong> Уравнение эллиптическое.</p>
+</div>
+
+<h2>2. Краевые задачи с подвижными границами</h2>
+
+<h3>Что такое краевая задача?</h3>
+<p>Краевая задача — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее определенным условиям на границах области. Эти условия называются <strong>граничными условиями</strong>.</p>
+
+<h3>Что такое подвижные границы?</h3>
+<p>Подвижные границы — это границы, которые изменяются со временем или зависят от других параметров. Например, длина стержня может изменяться со временем, или граница жидкости может двигаться.</p>
+
+<h3>Пример: Задача о теплопроводности в стержне с подвижным концом</h3>
+<div class="example">
+    <p>Рассмотрим стержень длиной \( L(t) \), которая изменяется со временем. Температура \( u(x, t) \) в стержне описывается уравнением теплопроводности:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}, \quad 0 < x < L(t), \quad t > 0.
+        \]
+    </p>
+    <p>Здесь:</p>
+    <ul>
+        <li>\( u(x, t) \) — температура в точке \( x \) в момент времени \( t \),</li>
+        <li>\( \alpha \) — коэффициент теплопроводности,</li>
+        <li>\( L(t) \) — длина стержня в момент времени \( t \).</li>
+    </ul>
+
+    <h4>Начальные и граничные условия</h4>
+    <p>1. <strong>Начальное условие:</strong></p>
+    <p>В начальный момент времени \( t = 0 \) температура в стержне задана функцией \( f(x) \):</p>
+    <p class="formula">
+        \[
+        u(x, 0) = f(x), \quad 0 \leq x \leq L(0).
+        \]
+    </p>
+
+    <p>2. <strong>Граничные условия:</strong></p>
+    <ul>
+        <li>На левом конце (\( x = 0 \)) температура фиксирована:
+            <p class="formula">
+                \[
+                u(0, t) = T_0.
+                \]
+            </p>
+        </li>
+        <li>На правом конце (\( x = L(t) \)) температура также фиксирована, но граница движется:
+            <p class="formula">
+                \[
+                u(L(t), t) = T_1.
+                \]
+            </p>
+        </li>
+    </ul>
+
+    <h4>Решение задачи</h4>
+    <p><strong>Шаг 1: Преобразование координат</strong></p>
+    <p>Поскольку граница \( x = L(t) \) движется, удобно перейти к новой системе координат, где граница будет фиксированной. Введем новую переменную:</p>
+    <p class="formula">
+        \[
+        \xi = \frac{x}{L(t)}.
+        \]
+    </p>
+    <p>Теперь \( \xi \) изменяется от 0 до 1 для всех \( t \).</p>
+
+    <p><strong>Шаг 2: Преобразование уравнения</strong></p>
+    <p>Выразим \( u(x, t) \) через новую переменную \( \xi \):</p>
+    <p class="formula">
+        \[
+        u(x, t) = u(\xi L(t), t).
+        \]
+    </p>
+    <p>Теперь найдем производные:</p>
+    <p>1. <strong>Первая производная по времени:</strong></p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = \frac{\partial u}{\partial \xi} \cdot \frac{\partial \xi}{\partial t} + \frac{\partial u}{\partial t}.
+        \]
+    </p>
+    <p>Поскольку \( \xi = \frac{x}{L(t)} \), то:</p>
+    <p class="formula">
+        \[
+        \frac{\partial \xi}{\partial t} = -\frac{x}{L(t)^2} \cdot \frac{dL}{dt} = -\frac{\xi}{L(t)} \cdot \frac{dL}{dt}.
+        \]
+    </p>
+    <p>Таким образом:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = -\frac{\xi}{L(t)} \cdot \frac{dL}{dt} \cdot \frac{\partial u}{\partial \xi} + \frac{\partial u}{\partial t}.
+        \]
+    </p>
+
+    <p>2. <strong>Вторая производная по \( x \):</strong></p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial x} = \frac{\partial u}{\partial \xi} \cdot \frac{\partial \xi}{\partial x} = \frac{1}{L(t)} \cdot \frac{\partial u}{\partial \xi},
+        \]
+    </p>
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial x^2} = \frac{1}{L(t)^2} \cdot \frac{\partial^2 u}{\partial \xi^2}.
+        \]
+    </p>
+
+    <p>Подставим эти выражения в исходное уравнение теплопроводности:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}.
+        \]
+    </p>
+    <p>После подстановки получим:</p>
+    <p class="formula">
+        \[
+        -\frac{\xi}{L(t)} \cdot \frac{dL}{dt} \cdot \frac{\partial u}{\partial \xi} + \frac{\partial u}{\partial t} = \alpha \frac{1}{L(t)^2} \cdot \frac{\partial^2 u}{\partial \xi^2}.
+        \]
+    </p>
+
+    <p><strong>Шаг 3: Упрощение уравнения</strong></p>
+    <p>Перенесем все члены в одну сторону:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = \alpha \frac{1}{L(t)^2} \cdot \frac{\partial^2 u}{\partial \xi^2} + \frac{\xi}{L(t)} \cdot \frac{dL}{dt} \cdot \frac{\partial u}{\partial \xi}.
+        \]
+    </p>
+    <p>Это уравнение теперь записано в фиксированной области \( 0 \leq \xi \leq 1 \), что упрощает его решение.</p>
+
+    <p><strong>Шаг 4: Численное решение</strong></p>
+    <p>Для решения такого уравнения часто используются численные методы, например:</p>
+    <ol>
+        <li><strong>Метод конечных разностей:</strong>
+            <ul>
+                <li>Разбиваем область \( 0 \leq \xi \leq 1 \) на небольшие отрезки.</li>
+                <li>Аппроксимируем производные разностными схемами.</li>
+                <li>Решаем систему уравнений, которая получается после дискретизации.</li>
+            </ul>
+        </li>
+        <li><strong>Метод конечных элементов:</strong>
+            <ul>
+                <li>Разбиваем область на элементы.</li>
+                <li>Аппроксимируем решение на каждом элементе.</li>
+                <li>Строим глобальную систему уравнений и решаем её.</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 4: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+        .formula {
+            font-size: 1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 4: Уравнения математической физики</h2>
+
+<h3>1. Вывод уравнения колебаний мембраны</h3>
+
+<p><strong>Что такое мембрана?</strong></p>
+<p>Мембрана — это тонкая, гибкая, упругая поверхность, которая может колебаться. Колебания мембраны описываются двумерным волновым уравнением.</p>
+
+<p><strong>Физические предположения:</strong></p>
+<ol>
+    <li>Мембрана однородная (плотность \( \rho \) постоянна).</li>
+    <li>Натяжение \( T \) постоянно по всей мембране.</li>
+    <li>Отклонения мембраны малы, поэтому углы наклона малы.</li>
+</ol>
+
+<p><strong>Уравнение колебаний мембраны:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right),
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, y, t) \) — отклонение мембраны от положения равновесия,</li>
+    <li>\( c = \sqrt{\frac{T}{\rho}} \) — скорость распространения волн в мембране.</li>
+</ul>
+
+<p><strong>Вывод уравнения:</strong></p>
+<ol>
+    <li><strong>Силы, действующие на элемент мембраны:</strong>
+        Рассмотрим малый элемент мембраны площадью \( \Delta x \Delta y \). На этот элемент действуют силы натяжения \( T \) по краям.
+    </li>
+    <li><strong>Сумма вертикальных сил:</strong>
+        Вертикальная сила, действующая на элемент мембраны, равна:
+        <p class="formula">
+            \[
+            T \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) \Delta x \Delta y.
+            \]
+        </p>
+    </li>
+    <li><strong>Ускорение элемента мембраны:</strong>
+        По второму закону Ньютона:
+        <p class="formula">
+            \[
+            \rho \Delta x \Delta y \frac{\partial^2 u}{\partial t^2} = T \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) \Delta x \Delta y.
+            \]
+        </p>
+    </li>
+    <li><strong>Упрощение уравнения:</strong>
+        Разделим на \( \rho \Delta x \Delta y \) и обозначим \( c^2 = \frac{T}{\rho} \):
+        <p class="formula">
+            \[
+            \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right).
+            \]
+        </p>
+        Это и есть <strong>уравнение колебаний мембраны</strong>.
+    </li>
+</ol>
+
+<h3>2. Распространение тепла в ограниченных телах. Схема метода разделения переменных</h3>
+
+<p><strong>Что такое уравнение теплопроводности?</strong></p>
+<p>Уравнение теплопроводности описывает распределение температуры в теле с течением времени. Для ограниченного тела оно имеет вид:</p>
+<p class="formula">
+    \[
+    \frac{\partial u}{\partial t} = \alpha \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right),
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, y, z, t) \) — температура в точке \( (x, y, z) \) в момент времени \( t \),</li>
+    <li>\( \alpha \) — коэффициент теплопроводности.</li>
+</ul>
+
+<p><strong>Метод разделения переменных:</strong></p>
+<p>Метод разделения переменных позволяет найти решение уравнения теплопроводности в виде произведения функций, каждая из которых зависит только от одной переменной.</p>
+
+<p><strong>Пример: Одномерное уравнение теплопроводности:</strong></p>
+<p>Рассмотрим одномерное уравнение теплопроводности:</p>
+<p class="formula">
+    \[
+    \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}.
+    \]
+</p>
+
+<p><strong>Граничные условия:</strong></p>
+<ol>
+    <li>На левой границе (\( x = 0 \)):
+        <p class="formula">
+            \[
+            u(0, t) = 0.
+            \]
+        </p>
+    </li>
+    <li>На правой границе (\( x = L \)):
+        <p class="formula">
+            \[
+            u(L, t) = 0.
+            \]
+        </p>
+    </li>
+</ol>
+
+<p><strong>Начальное условие:</strong></p>
+<p class="formula">
+    \[
+    u(x, 0) = f(x).
+    \]
+</p>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<ol>
+    <li><strong>Предположим, что решение имеет вид:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = X(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Подставим в уравнение:</strong>
+        <p class="formula">
+            \[
+            X(x) T'(t) = \alpha X''(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Разделим на \( X(x) T(t) \):</strong>
+        <p class="formula">
+            \[
+            \frac{T'(t)}{\alpha T(t)} = \frac{X''(x)}{X(x)} = -\lambda.
+            \]
+        </p>
+    </li>
+    <li><strong>Получаем два обыкновенных дифференциальных уравнения:</strong>
+        <ul>
+            <li>Для \( X(x) \):
+                <p class="formula">
+                    \[
+                    X''(x) + \lambda X(x) = 0.
+                    \]
+                </p>
+            </li>
+            <li>Для \( T(t) \):
+                <p class="formula">
+                    \[
+                    T'(t) + \alpha \lambda T(t) = 0.
+                    \]
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li><strong>Решим уравнение для \( X(x) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            X(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda} x).
+            \]
+        </p>
+        Из граничных условий \( X(0) = 0 \) и \( X(L) = 0 \) получаем:
+        <p class="formula">
+            \[
+            \sqrt{\lambda} = \frac{n \pi}{L}, \quad n = 1, 2, 3, \dots
+            \]
+        </p>
+        Таким образом:
+        <p class="formula">
+            \[
+            X_n(x) = \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+    </li>
+    <li><strong>Решим уравнение для \( T(t) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            T_n(t) = C_n e^{-\alpha \left(\frac{n \pi}{L}\right)^2 t}.
+            \]
+        </p>
+    </li>
+    <li><strong>Общее решение уравнения теплопроводности:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = \sum_{n=1}^{\infty} C_n \sin\left(\frac{n \pi x}{L}\right) e^{-\alpha \left(\frac{n \pi}{L}\right)^2 t}.
+            \]
+        </p>
+    </li>
+    <li><strong>Определим коэффициенты \( C_n \):</strong>
+        Используем начальное условие \( u(x, 0) = f(x) \):
+        <p class="formula">
+            \[
+            f(x) = \sum_{n=1}^{\infty} C_n \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+        Коэффициенты \( C_n \) находятся по формуле:
+        <p class="formula">
+            \[
+            C_n = \frac{2}{L} \int_0^L f(x) \sin\left(\frac{n \pi x}{L}\right) dx.
+            \]
+        </p>
+    </li>
+</ol>
+
+<h3>Итог</h3>
+<p><strong>1. Вывод уравнения колебаний мембраны:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) \).</li>
+    <li>Физические предположения.</li>
+    <li>Вывод уравнения.</li>
+</ul>
+
+<p><strong>2. Распространение тепла в ограниченных телах:</strong></p>
+<ul>
+    <li>Уравнение теплопроводности: \( \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} \).</li>
+    <li>Метод разделения переменных.</li>
+    <li>Решение с граничными и начальными условиями.</li>
+</ul>
+
+
+
+</body>
+</html>

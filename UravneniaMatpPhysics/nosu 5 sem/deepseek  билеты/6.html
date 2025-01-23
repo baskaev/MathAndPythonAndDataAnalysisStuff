@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 6: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+        .formula {
+            font-size: 1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+        .answer {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 6: Уравнения математической физики</h2>
+
+<h3>1. Общая краевая задача для уравнений колебаний</h3>
+
+<p><strong>Что такое краевая задача?</strong></p>
+<p>Краевая задача — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее определенным условиям на границах области.</p>
+
+<p><strong>Уравнение колебаний:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right),
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, y, z, t) \) — отклонение от положения равновесия,</li>
+    <li>\( c \) — скорость распространения волн.</li>
+</ul>
+
+<p><strong>Граничные условия:</strong></p>
+<ol>
+    <li><strong>Закрепленные границы:</strong>
+        <p class="formula">
+            \[
+            u(0, t) = 0, \quad u(L, t) = 0.
+            \]
+        </p>
+    </li>
+    <li><strong>Свободные границы:</strong>
+        <p class="formula">
+            \[
+            \frac{\partial u}{\partial x}(0, t) = 0, \quad \frac{\partial u}{\partial x}(L, t) = 0.
+            \]
+        </p>
+    </li>
+</ol>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<ol>
+    <li><strong>Предположим, что решение имеет вид:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = X(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Подставим в уравнение:</strong>
+        <p class="formula">
+            \[
+            X(x) T''(t) = c^2 X''(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Разделим на \( X(x) T(t) \):</strong>
+        <p class="formula">
+            \[
+            \frac{T''(t)}{c^2 T(t)} = \frac{X''(x)}{X(x)} = -\lambda.
+            \]
+        </p>
+    </li>
+    <li><strong>Получаем два обыкновенных дифференциальных уравнения:</strong>
+        <ul>
+            <li>Для \( X(x) \):
+                <p class="formula">
+                    \[
+                    X''(x) + \lambda X(x) = 0.
+                    \]
+                </p>
+            </li>
+            <li>Для \( T(t) \):
+                <p class="formula">
+                    \[
+                    T''(t) + \lambda c^2 T(t) = 0.
+                    \]
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li><strong>Решим уравнение для \( X(x) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            X(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda} x).
+            \]
+        </p>
+        Из граничных условий \( X(0) = 0 \) и \( X(L) = 0 \) получаем:
+        <p class="formula">
+            \[
+            \sqrt{\lambda} = \frac{n \pi}{L}, \quad n = 1, 2, 3, \dots
+            \]
+        </p>
+        Таким образом:
+        <p class="formula">
+            \[
+            X_n(x) = \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+    </li>
+    <li><strong>Решим уравнение для \( T(t) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            T_n(t) = C_n \cos\left(\frac{n \pi c t}{L}\right) + D_n \sin\left(\frac{n \pi c t}{L}\right).
+            \]
+        </p>
+    </li>
+    <li><strong>Общее решение уравнения колебаний:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = \sum_{n=1}^{\infty} \left[ C_n \cos\left(\frac{n \pi c t}{L}\right) + D_n \sin\left(\frac{n \pi c t}{L}\right) \right] \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+    </li>
+</ol>
+
+<h3>2. Уравнение Лапласа в полярной системе координат</h3>
+
+<p><strong>Что такое уравнение Лапласа?</strong></p>
+<p>Уравнение Лапласа описывает стационарные процессы, например, распределение температуры в равновесии или потенциал электростатического поля. В двумерном случае оно имеет вид:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+    \]
+</p>
+
+<p><strong>Переход к полярным координатам:</strong></p>
+<p>В полярных координатах \( (r, \theta) \) уравнение Лапласа принимает вид:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial r^2} + \frac{1}{r} \frac{\partial u}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0.
+    \]
+</p>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<ol>
+    <li><strong>Предположим, что решение имеет вид:</strong>
+        <p class="formula">
+            \[
+            u(r, \theta) = R(r) \Theta(\theta).
+            \]
+        </p>
+    </li>
+    <li><strong>Подставим в уравнение:</strong>
+        <p class="formula">
+            \[
+            R''(r) \Theta(\theta) + \frac{1}{r} R'(r) \Theta(\theta) + \frac{1}{r^2} R(r) \Theta''(\theta) = 0.
+            \]
+        </p>
+    </li>
+    <li><strong>Разделим на \( R(r) \Theta(\theta) \):</strong>
+        <p class="formula">
+            \[
+            \frac{R''(r)}{R(r)} + \frac{1}{r} \frac{R'(r)}{R(r)} + \frac{1}{r^2} \frac{\Theta''(\theta)}{\Theta(\theta)} = 0.
+            \]
+        </p>
+    </li>
+    <li><strong>Получаем два обыкновенных дифференциальных уравнения:</strong>
+        <ul>
+            <li>Для \( \Theta(\theta) \):
+                <p class="formula">
+                    \[
+                    \Theta''(\theta) + \lambda \Theta(\theta) = 0.
+                    \]
+                </p>
+            </li>
+            <li>Для \( R(r) \):
+                <p class="formula">
+                    \[
+                    r^2 R''(r) + r R'(r) - \lambda R(r) = 0.
+                    \]
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li><strong>Решим уравнение для \( \Theta(\theta) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            \Theta(\theta) = A \cos(\sqrt{\lambda} \theta) + B \sin(\sqrt{\lambda} \theta).
+            \]
+        </p>
+        Из условия периодичности \( \Theta(\theta + 2\pi) = \Theta(\theta) \) получаем:
+        <p class="formula">
+            \[
+            \sqrt{\lambda} = n, \quad n = 0, 1, 2, \dots
+            \]
+        </p>
+        Таким образом:
+        <p class="formula">
+            \[
+            \Theta_n(\theta) = A_n \cos(n \theta) + B_n \sin(n \theta).
+            \]
+        </p>
+    </li>
+    <li><strong>Решим уравнение для \( R(r) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            R_n(r) = C_n r^n + D_n r^{-n}.
+            \]
+        </p>
+    </li>
+    <li><strong>Общее решение уравнения Лапласа в полярных координатах:</strong>
+        <p class="formula">
+            \[
+            u(r, \theta) = \sum_{n=0}^{\infty} \left( C_n r^n + D_n r^{-n} \right) \left( A_n \cos(n \theta) + B_n \sin(n \theta) \right).
+            \]
+        </p>
+    </li>
+</ol>
+
+<h3>Возможные вопросы преподавателя и ответы на них</h3>
+
+<div class="question">1. Что такое краевая задача?</div>
+<div class="answer">
+    Краевая задача — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее определенным условиям на границах области.
+</div>
+
+<div class="question">2. Какие граничные условия могут быть заданы для уравнения колебаний?</div>
+<div class="answer">
+    <ul>
+        <li>Закрепленные границы: \( u(0, t) = 0 \), \( u(L, t) = 0 \).</li>
+        <li>Свободные границы: \( \frac{\partial u}{\partial x}(0, t) = 0 \), \( \frac{\partial u}{\partial x}(L, t) = 0 \).</li>
+    </ul>
+</div>
+
+<div class="question">3. Как решается уравнение колебаний методом разделения переменных?</div>
+<div class="answer">
+    Решение ищется в виде \( u(x, t) = X(x) T(t) \). Подставляем в уравнение, разделяем переменные и решаем два обыкновенных дифференциальных уравнения.
+</div>
+
+<div class="question">4. Что такое уравнение Лапласа?</div>
+<div class="answer">
+    Уравнение Лапласа описывает стационарные процессы, такие как распределение температуры в равновесии или потенциал электростатического поля.
+</div>
+
+<div class="question">5. Как выглядит уравнение Лапласа в полярных координатах?</div>
+<div class="answer">
+    В полярных координатах уравнение Лапласа имеет вид:
+    \[
+    \frac{\partial^2 u}{\partial r^2} + \frac{1}{r} \frac{\partial u}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0.
+    \]
+</div>
+
+<div class="question">6. Как решается уравнение Лапласа методом разделения переменных?</div>
+<div class="answer">
+    Решение ищется в виде \( u(r, \theta) = R(r) \Theta(\theta) \). Подставляем в уравнение, разделяем переменные и решаем два обыкновенных дифференциальных уравнения.
+</div>
+
+<h3>Итог</h3>
+<p><strong>1. Общая краевая задача для уравнений колебаний:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) \).</li>
+    <li>Граничные условия.</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+<p><strong>2. Уравнение Лапласа в полярной системе координат:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial r^2} + \frac{1}{r} \frac{\partial u}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0 \).</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+
+</body>
+</html>

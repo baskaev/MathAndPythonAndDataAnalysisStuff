@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 7: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+        .formula {
+            font-size: 1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+        .answer {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 7: Уравнения математической физики</h2>
+
+<h3>1. Задача Гурса с данными на характеристиках</h3>
+
+<p><strong>Что такое задача Гурса?</strong></p>
+<p>Задача Гурса — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее заданным условиям на характеристиках.</p>
+
+<p><strong>Что такое характеристика?</strong></p>
+<p>Характеристика — это кривая, вдоль которой решение уравнения с частными производными может быть выражено через начальные данные. Для гиперболических уравнений характеристики играют важную роль, так как вдоль них информация распространяется.</p>
+
+<p><strong>Уравнение с характеристиками:</strong></p>
+<p>Для гиперболического уравнения второго порядка:</p>
+<p class="formula">
+    \[
+    A(x, y) \frac{\partial^2 u}{\partial x^2} + 2B(x, y) \frac{\partial^2 u}{\partial x \partial y} + C(x, y) \frac{\partial^2 u}{\partial y^2} = 0,
+    \]
+</p>
+<p>характеристики определяются уравнением:</p>
+<p class="formula">
+    \[
+    A(dy)^2 - 2B dx dy + C(dx)^2 = 0.
+    \]
+</p>
+
+<p><strong>Пример: Волновое уравнение:</strong></p>
+<p>Рассмотрим волновое уравнение:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}.
+    \]
+</p>
+<p>Характеристики этого уравнения:</p>
+<p class="formula">
+    \[
+    x - ct = \text{const}, \quad x + ct = \text{const}.
+    \]
+</p>
+
+<p><strong>Задача Гурса:</strong></p>
+<p>Задача Гурса заключается в нахождении решения уравнения, удовлетворяющего заданным условиям на характеристиках. Например, для волнового уравнения:</p>
+<p class="formula">
+    \[
+    u(x, 0) = f(x), \quad \frac{\partial u}{\partial t}(x, 0) = g(x).
+    \]
+</p>
+
+<p><strong>Решение задачи Гурса:</strong></p>
+<p>Решение задачи Гурса для волнового уравнения можно найти с помощью формулы Даламбера:</p>
+<p class="formula">
+    \[
+    u(x, t) = \frac{1}{2} \left[ f(x - ct) + f(x + ct) \right] + \frac{1}{2c} \int_{x - ct}^{x + ct} g(s) ds.
+    \]
+</p>
+
+<p><strong>Пример:</strong></p>
+<p>Пусть начальное отклонение струны задано функцией:</p>
+<p class="formula">
+    \[
+    f(x) = \sin\left(\frac{\pi x}{L}\right),
+    \]
+</p>
+<p>а начальная скорость равна нулю:</p>
+<p class="formula">
+    \[
+    g(x) = 0.
+    \]
+</p>
+<p>Тогда решение задачи Коши:</p>
+<p class="formula">
+    \[
+    u(x, t) = \frac{1}{2} \left[ \sin\left(\frac{\pi (x - ct)}{L}\right) + \sin\left(\frac{\pi (x + ct)}{L}\right) \right].
+    \]
+</p>
+
+<h3>2. Фундаментальное решение для уравнения Лапласа</h3>
+
+<p><strong>Что такое фундаментальное решение?</strong></p>
+<p>Фундаментальное решение — это решение уравнения с частными производными, которое позволяет находить решения для произвольных начальных условий.</p>
+
+<p><strong>Уравнение Лапласа:</strong></p>
+<p>Уравнение Лапласа в двумерном случае:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+    \]
+</p>
+
+<p><strong>Фундаментальное решение:</strong></p>
+<p>Фундаментальное решение уравнения Лапласа в двумерном случае:</p>
+<p class="formula">
+    \[
+    G(x, y) = \frac{1}{2\pi} \ln \sqrt{x^2 + y^2}.
+    \]
+</p>
+
+<p><strong>Пример использования:</strong></p>
+<p>Фундаментальное решение используется для нахождения решения уравнения Лапласа с заданными граничными условиями. Например, для задачи Дирихле:</p>
+<p class="formula">
+    \[
+    u(x, y) = \int_{\partial \Omega} G(x - \xi, y - \eta) f(\xi, \eta) dS,
+    \]
+</p>
+<p>где \( f(\xi, \eta) \) — граничные условия.</p>
+
+<h3>Возможные вопросы преподавателя и ответы на них</h3>
+
+<div class="question">1. Что такое задача Гурса?</div>
+<div class="answer">
+    Задача Гурса — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее заданным условиям на характеристиках.
+</div>
+
+<div class="question">2. Что такое характеристика?</div>
+<div class="answer">
+    Характеристика — это кривая, вдоль которой решение уравнения с частными производными может быть выражено через начальные данные.
+</div>
+
+<div class="question">3. Как найти характеристики для волнового уравнения?</div>
+<div class="answer">
+    Характеристики для волнового уравнения \( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} \) определяются уравнениями:
+    \[
+    x - ct = \text{const}, \quad x + ct = \text{const}.
+    \]
+</div>
+
+<div class="question">4. Как решается задача Гурса для волнового уравнения?</div>
+<div class="answer">
+    Решение задачи Гурса для волнового уравнения можно найти с помощью формулы Даламбера:
+    \[
+    u(x, t) = \frac{1}{2} \left[ f(x - ct) + f(x + ct) \right] + \frac{1}{2c} \int_{x - ct}^{x + ct} g(s) ds.
+    \]
+</div>
+
+<div class="question">5. Что такое фундаментальное решение?</div>
+<div class="answer">
+    Фундаментальное решение — это решение уравнения с частными производными, которое позволяет находить решения для произвольных начальных условий.
+</div>
+
+<div class="question">6. Как выглядит фундаментальное решение для уравнения Лапласа?</div>
+<div class="answer">
+    Фундаментальное решение уравнения Лапласа в двумерном случае:
+    \[
+    G(x, y) = \frac{1}{2\pi} \ln \sqrt{x^2 + y^2}.
+    \]
+</div>
+
+<div class="question">7. Как используется фундаментальное решение для задачи Дирихле?</div>
+<div class="answer">
+    Фундаментальное решение используется для нахождения решения уравнения Лапласа с заданными граничными условиями:
+    \[
+    u(x, y) = \int_{\partial \Omega} G(x - \xi, y - \eta) f(\xi, \eta) dS,
+    \]
+    где \( f(\xi, \eta) \) — граничные условия.
+</div>
+
+<h3>Итог</h3>
+<p><strong>1. Задача Гурса с данными на характеристиках:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} \).</li>
+    <li>Характеристики: \( x - ct = \text{const} \), \( x + ct = \text{const} \).</li>
+    <li>Решение с помощью формулы Даламбера.</li>
+</ul>
+
+<p><strong>2. Фундаментальное решение для уравнения Лапласа:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \).</li>
+    <li>Фундаментальное решение: \( G(x, y) = \frac{1}{2\pi} \ln \sqrt{x^2 + y^2} \).</li>
+    <li>Пример использования для задачи Дирихле.</li>
+</ul>
+
+
+
+</body>
+</html>

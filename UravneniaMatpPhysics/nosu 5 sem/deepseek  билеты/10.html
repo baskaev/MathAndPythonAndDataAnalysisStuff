@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 10: Уравнения математической физики</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .definition, .example, .question, .answer {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Билет № 10: Уравнения математической физики</h2>
+
+<h3>1. Распространение тепла на бесконечной прямой</h3>
+
+<div class="definition">
+    <p><strong>Определение:</strong></p>
+    <p>
+        Уравнение теплопроводности на бесконечной прямой описывает распределение температуры \( u(x, t) \) в бесконечной среде с течением времени. Уравнение имеет вид:
+        \[
+        u_t = a^2 u_{xx},
+        \]
+        где:
+        <ul>
+            <li>\( u(x, t) \) — температура в точке \( x \) в момент времени \( t \),</li>
+            <li>\( a \) — коэффициент теплопроводности.</li>
+        </ul>
+    </p>
+</div>
+
+<div class="definition">
+    <p><strong>Начальное условие:</strong></p>
+    <p>
+        Задано начальное распределение температуры:
+        \[
+        u(x, 0) = \phi(x).
+        \]
+    </p>
+</div>
+
+<div class="solution">
+    <p><strong>Решение:</strong></p>
+    <p>
+        1. <strong>Фундаментальное решение:</strong> Для уравнения теплопроводности на бесконечной прямой фундаментальное решение (функция Грина) имеет вид:
+        \[
+        G(x, t) = \frac{1}{2a \sqrt{\pi t}} e^{-\frac{x^2}{4a^2 t}}.
+        \]
+        Это решение описывает распределение температуры в бесконечной среде, если в начальный момент времени \( t = 0 \) в точке \( x = 0 \) был сосредоточен единичный источник тепла.
+    </p>
+    <p>
+        2. <strong>Решение задачи Коши:</strong> Если начальное распределение температуры задано функцией \( \phi(x) \), то решение задачи Коши можно найти с помощью свертки:
+        \[
+        u(x, t) = \int_{-\infty}^{\infty} \phi(\xi) G(x - \xi, t) \, d\xi.
+        \]
+        Подставляя \( G(x - \xi, t) \), получаем:
+        \[
+        u(x, t) = \frac{1}{2a \sqrt{\pi t}} \int_{-\infty}^{\infty} \phi(\xi) e^{-\frac{(x - \xi)^2}{4a^2 t}} \, d\xi.
+        \]
+    </p>
+</div>
+
+<div class="example">
+    <p><strong>Пример задачи:</strong></p>
+    <p>
+        Найти распределение температуры на бесконечной прямой, если в начальный момент времени \( t = 0 \) температура задана функцией:
+        \[
+        \phi(x) = 
+        \begin{cases}
+        T_0, & \text{если } |x| \leq L, \\
+        0, & \text{если } |x| > L.
+        \end{cases}
+        \]
+    </p>
+    <p>
+        <strong>Решение:</strong>
+        1. Подставляем \( \phi(x) \) в формулу для решения задачи Коши:
+        \[
+        u(x, t) = \frac{1}{2a \sqrt{\pi t}} \int_{-L}^{L} T_0 e^{-\frac{(x - \xi)^2}{4a^2 t}} \, d\xi.
+        \]
+        2. Вычисляем интеграл:
+        \[
+        u(x, t) = \frac{T_0}{2a \sqrt{\pi t}} \int_{-L}^{L} e^{-\frac{(x - \xi)^2}{4a^2 t}} \, d\xi.
+        \]
+        3. Этот интеграл можно выразить через функцию ошибок (erf):
+        \[
+        u(x, t) = \frac{T_0}{2} \left[ \text{erf}\left( \frac{x + L}{2a \sqrt{t}} \right) - \text{erf}\left( \frac{x - L}{2a \sqrt{t}} \right) \right],
+        \]
+        где \( \text{erf}(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt \).
+    </p>
+</div>
+
+<h3>2. Уравнение Лапласа в криволинейной системе координат</h3>
+
+<div class="definition">
+    <p><strong>Определение:</strong></p>
+    <p>
+        Уравнение Лапласа — это дифференциальное уравнение в частных производных второго порядка, которое имеет вид:
+        \[
+        \Delta u = 0,
+        \]
+        где \( \Delta \) — оператор Лапласа. В декартовых координатах:
+        \[
+        \Delta u = u_{xx} + u_{yy} + u_{zz}.
+        \]
+        В криволинейной системе координат оператор Лапласа принимает более сложный вид, зависящий от выбранной системы координат.
+    </p>
+</div>
+
+<div class="example">
+    <p><strong>Пример: Уравнение Лапласа в цилиндрических координатах</strong></p>
+    <p>
+        Цилиндрические координаты \( (r, \theta, z) \) связаны с декартовыми координатами \( (x, y, z) \) следующим образом:
+        \[
+        x = r \cos \theta, \quad y = r \sin \theta, \quad z = z.
+        \]
+        Оператор Лапласа в цилиндрических координатах имеет вид:
+        \[
+        \Delta u = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} + \frac{\partial^2 u}{\partial z^2}.
+        \]
+    </p>
+</div>
+
+<div class="example">
+    <p><strong>Пример задачи:</strong></p>
+    <p>
+        Решить уравнение Лапласа в цилиндрических координатах для функции \( u(r, \theta, z) \), не зависящей от \( z \).
+    </p>
+    <p>
+        <strong>Решение:</strong>
+        1. Уравнение Лапласа в цилиндрических координатах при \( u = u(r, \theta) \) принимает вид:
+        \[
+        \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} = 0.
+        \]
+        2. Предположим, что решение можно представить в виде:
+        \[
+        u(r, \theta) = R(r) \Theta(\theta).
+        \]
+        3. Подставляем это в уравнение Лапласа:
+        \[
+        \frac{1}{r} \frac{d}{dr} \left( r \frac{dR}{dr} \right) \Theta + \frac{1}{r^2} R \frac{d^2 \Theta}{d \theta^2} = 0.
+        \]
+        4. Разделяем переменные:
+        \[
+        \frac{r}{R} \frac{d}{dr} \left( r \frac{dR}{dr} \right) = -\frac{1}{\Theta} \frac{d^2 \Theta}{d \theta^2} = \lambda,
+        \]
+        где \( \lambda \) — постоянная разделения.
+        5. Получаем два обыкновенных дифференциальных уравнения:
+        \[
+        \frac{d^2 \Theta}{d \theta^2} + \lambda \Theta = 0,
+        \]
+        \[
+        r^2 \frac{d^2 R}{dr^2} + r \frac{dR}{dr} - \lambda R = 0.
+        \]
+        6. Решаем уравнение для \( \Theta(\theta) \):
+        \[
+        \Theta(\theta) = A \cos(\sqrt{\lambda} \theta) + B \sin(\sqrt{\lambda} \theta).
+        \]
+        Учитывая периодичность \( \Theta(\theta + 2\pi) = \Theta(\theta) \), получаем \( \lambda = n^2 \), где \( n \) — целое число.
+        7. Решаем уравнение для \( R(r) \):
+        \[
+        r^2 \frac{d^2 R}{dr^2} + r \frac{dR}{dr} - n^2 R = 0.
+        \]
+        Это уравнение Эйлера, его решение:
+        \[
+        R(r) = C r^n + D r^{-n}.
+        \]
+        8. Общее решение:
+        \[
+        u(r, \theta) = \sum_{n=0}^{\infty} \left( A_n r^n + B_n r^{-n} \right) \left( C_n \cos(n \theta) + D_n \sin(n \theta) \right).
+        \]
+    </p>
+</div>
+
+<div class="example">
+    <p><strong>Пример задачи:</strong></p>
+    <p>
+        Найти решение уравнения Лапласа в круге радиуса \( R \) с граничным условием \( u(R, \theta) = f(\theta) \).
+    </p>
+    <p>
+        <strong>Решение:</strong>
+        1. Внутри круга \( r < R \), поэтому \( r^{-n} \) недопустимо (решение должно быть конечным в центре круга). Таким образом, общее решение принимает вид:
+        \[
+        u(r, \theta) = \sum_{n=0}^{\infty} r^n \left( A_n \cos(n \theta) + B_n \sin(n \theta) \right).
+        \]
+        2. Находим коэффициенты \( A_n \) и \( B_n \) из граничного условия:
+        \[
+        f(\theta) = \sum_{n=0}^{\infty} R^n \left( A_n \cos(n \theta) + B_n \sin(n \theta) \right).
+        \]
+        Это ряд Фурье. Коэффициенты \( A_n \) и \( B_n \) вычисляются по формулам:
+        \[
+        A_n = \frac{1}{\pi R^n} \int_0^{2\pi} f(\theta) \cos(n \theta) \, d\theta,
+        \]
+        \[
+        B_n = \frac{1}{\pi R^n} \int_0^{2\pi} f(\theta) \sin(n \theta) \, d\theta.
+        \]
+    </p>
+</div>
+
+<h3>Вопросы, которые могут возникнуть у преподавателя, и ответы на них:</h3>
+
+<div class="question">
+    <p><strong>Вопрос 1:</strong> Что такое фундаментальное решение уравнения теплопроводности?</p>
+</div>
+<div class="answer">
+    <p><strong>Ответ:</strong></p>
+    <p>
+        Фундаментальное решение — это решение, описывающее распределение температуры в бесконечной среде при точечном источнике тепла в начальный момент времени. Оно имеет вид:
+        \[
+        G(x, t) = \frac{1}{2a \sqrt{\pi t}} e^{-\frac{x^2}{4a^2 t}}.
+        \]
+    </p>
+</div>
+
+<div class="question">
+    <p><strong>Вопрос 2:</strong> Как решается задача Коши для уравнения теплопроводности на бесконечной прямой?</p>
+</div>
+<div class="answer">
+    <p><strong>Ответ:</strong></p>
+    <p>
+        Решение задачи Коши находится с помощью свертки начального распределения температуры \( \phi(x) \) с фундаментальным решением \( G(x, t) \):
+        \[
+        u(x, t) = \int_{-\infty}^{\infty} \phi(\xi) G(x - \xi, t) \, d\xi.
+        \]
+    </p>
+</div>
+
+<div class="question">
+    <p><strong>Вопрос 3:</strong> Как выглядит уравнение Лапласа в цилиндрических координатах?</p>
+</div>
+<div class="answer">
+    <p><strong>Ответ:</strong></p>
+    <p>
+        В цилиндрических координатах \( (r, \theta, z) \) уравнение Лапласа имеет вид:
+        \[
+        \Delta u = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} + \frac{\partial^2 u}{\partial z^2}.
+        \]
+    </p>
+</div>
+
+<div class="question">
+    <p><strong>Вопрос 4:</strong> Как решается уравнение Лапласа в круге?</p>
+</div>
+<div class="answer">
+    <p><strong>Ответ:</strong></p>
+    <p>
+        Решение уравнения Лапласа в круге находится методом разделения переменных. Общее решение имеет вид:
+        \[
+        u(r, \theta) = \sum_{n=0}^{\infty} r^n \left( A_n \cos(n \theta) + B_n \sin(n \theta) \right).
+        \]
+        Коэффициенты \( A_n \) и \( B_n \) находятся из граничного условия.
+    </p>
+</div>
+
+<div class="question">
+    <p><strong>Вопрос 5:</strong> Что такое функция ошибок (erf)?</p>
+</div>
+<div class="answer">
+    <p><strong>Ответ:</strong></p>
+    <p>
+        Функция ошибок \( \text{erf}(z) \) определяется как:
+        \[
+        \text{erf}(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2} dt.
+        \]
+        Она используется для вычисления интегралов, связанных с гауссовыми распределениями.
+    </p>
+</div>
+
+</body>
+</html>

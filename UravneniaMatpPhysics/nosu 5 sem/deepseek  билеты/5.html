@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 5: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+        .formula {
+            font-size: 1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 5: Уравнения математической физики</h2>
+
+<h3>1. Уравнение распространения тепла в изотропном твердом теле</h3>
+
+<p><strong>Что такое изотропное твердое тело?</strong></p>
+<p>Изотропное твердое тело — это тело, свойства которого (например, теплопроводность) одинаковы во всех направлениях.</p>
+
+<p><strong>Уравнение теплопроводности:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial u}{\partial t} = \alpha \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right),
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, y, z, t) \) — температура в точке \( (x, y, z) \) в момент времени \( t \),</li>
+    <li>\( \alpha \) — коэффициент теплопроводности.</li>
+</ul>
+
+<p><strong>Физический смысл уравнения:</strong></p>
+<ol>
+    <li><strong>Левый член \( \frac{\partial u}{\partial t} \):</strong>
+        Скорость изменения температуры в точке.
+    </li>
+    <li><strong>Правый член \( \alpha \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) \):</strong>
+        Описывает диффузию тепла в теле. Чем больше вторая производная температуры по координатам, тем быстрее тепло распространяется.
+    </li>
+</ol>
+
+<p><strong>Пример: Одномерное уравнение теплопроводности:</strong></p>
+<p>Рассмотрим одномерное уравнение теплопроводности:</p>
+<p class="formula">
+    \[
+    \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}.
+    \]
+</p>
+
+<p><strong>Граничные условия:</strong></p>
+<ol>
+    <li>На левой границе (\( x = 0 \)):
+        <p class="formula">
+            \[
+            u(0, t) = T_0.
+            \]
+        </p>
+    </li>
+    <li>На правой границе (\( x = L \)):
+        <p class="formula">
+            \[
+            u(L, t) = T_1.
+            \]
+        </p>
+    </li>
+</ol>
+
+<p><strong>Начальное условие:</strong></p>
+<p class="formula">
+    \[
+    u(x, 0) = f(x).
+    \]
+</p>
+
+<p><strong>Решение методом разделения переменных:</strong></p>
+<ol>
+    <li><strong>Предположим, что решение имеет вид:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = X(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Подставим в уравнение:</strong>
+        <p class="formula">
+            \[
+            X(x) T'(t) = \alpha X''(x) T(t).
+            \]
+        </p>
+    </li>
+    <li><strong>Разделим на \( X(x) T(t) \):</strong>
+        <p class="formula">
+            \[
+            \frac{T'(t)}{\alpha T(t)} = \frac{X''(x)}{X(x)} = -\lambda.
+            \]
+        </p>
+    </li>
+    <li><strong>Получаем два обыкновенных дифференциальных уравнения:</strong>
+        <ul>
+            <li>Для \( X(x) \):
+                <p class="formula">
+                    \[
+                    X''(x) + \lambda X(x) = 0.
+                    \]
+                </p>
+            </li>
+            <li>Для \( T(t) \):
+                <p class="formula">
+                    \[
+                    T'(t) + \alpha \lambda T(t) = 0.
+                    \]
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li><strong>Решим уравнение для \( X(x) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            X(x) = A \sin(\sqrt{\lambda} x) + B \cos(\sqrt{\lambda} x).
+            \]
+        </p>
+        Из граничных условий \( X(0) = 0 \) и \( X(L) = 0 \) получаем:
+        <p class="formula">
+            \[
+            \sqrt{\lambda} = \frac{n \pi}{L}, \quad n = 1, 2, 3, \dots
+            \]
+        </p>
+        Таким образом:
+        <p class="formula">
+            \[
+            X_n(x) = \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+    </li>
+    <li><strong>Решим уравнение для \( T(t) \):</strong>
+        Общее решение:
+        <p class="formula">
+            \[
+            T_n(t) = C_n e^{-\alpha \left(\frac{n \pi}{L}\right)^2 t}.
+            \]
+        </p>
+    </li>
+    <li><strong>Общее решение уравнения теплопроводности:</strong>
+        <p class="formula">
+            \[
+            u(x, t) = \sum_{n=1}^{\infty} C_n \sin\left(\frac{n \pi x}{L}\right) e^{-\alpha \left(\frac{n \pi}{L}\right)^2 t}.
+            \]
+        </p>
+    </li>
+    <li><strong>Определим коэффициенты \( C_n \):</strong>
+        Используем начальное условие \( u(x, 0) = f(x) \):
+        <p class="formula">
+            \[
+            f(x) = \sum_{n=1}^{\infty} C_n \sin\left(\frac{n \pi x}{L}\right).
+            \]
+        </p>
+        Коэффициенты \( C_n \) находятся по формуле:
+        <p class="formula">
+            \[
+            C_n = \frac{2}{L} \int_0^L f(x) \sin\left(\frac{n \pi x}{L}\right) dx.
+            \]
+        </p>
+    </li>
+</ol>
+
+<h3>2. Задача Коши для уравнения колебаний струны</h3>
+
+<p><strong>Что такое задача Коши?</strong></p>
+<p>Задача Коши — это задача, в которой ищется решение уравнения с частными производными, удовлетворяющее начальным условиям.</p>
+
+<p><strong>Уравнение колебаний струны:</strong></p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2},
+    \]
+</p>
+<p>где:</p>
+<ul>
+    <li>\( u(x, t) \) — отклонение струны от положения равновесия,</li>
+    <li>\( c \) — скорость распространения волн в струне.</li>
+</ul>
+
+<p><strong>Начальные условия:</strong></p>
+<ol>
+    <li>Начальное отклонение струны:
+        <p class="formula">
+            \[
+            u(x, 0) = f(x).
+            \]
+        </p>
+    </li>
+    <li>Начальная скорость струны:
+        <p class="formula">
+            \[
+            \frac{\partial u}{\partial t}(x, 0) = g(x).
+            \]
+        </p>
+    </li>
+</ol>
+
+<p><strong>Решение методом Даламбера:</strong></p>
+<p>Решение задачи Коши для волнового уравнения можно найти с помощью формулы Даламбера:</p>
+<p class="formula">
+    \[
+    u(x, t) = \frac{1}{2} \left[ f(x - ct) + f(x + ct) \right] + \frac{1}{2c} \int_{x - ct}^{x + ct} g(s) ds.
+    \]
+</p>
+
+<p><strong>Пример:</strong></p>
+<p>Пусть начальное отклонение струны задано функцией:</p>
+<p class="formula">
+    \[
+    f(x) = \sin\left(\frac{\pi x}{L}\right),
+    \]
+</p>
+<p>а начальная скорость равна нулю:</p>
+<p class="formula">
+    \[
+    g(x) = 0.
+    \]
+</p>
+<p>Тогда решение задачи Коши:</p>
+<p class="formula">
+    \[
+    u(x, t) = \frac{1}{2} \left[ \sin\left(\frac{\pi (x - ct)}{L}\right) + \sin\left(\frac{\pi (x + ct)}{L}\right) \right].
+    \]
+</p>
+
+<h3>Итог</h3>
+<p><strong>1. Уравнение распространения тепла в изотропном твердом теле:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial u}{\partial t} = \alpha \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) \).</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+<p><strong>2. Задача Коши для уравнения колебаний струны:</strong></p>
+<ul>
+    <li>Уравнение: \( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} \).</li>
+    <li>Решение с помощью формулы Даламбера.</li>
+</ul>
+
+
+
+</body>
+</html>

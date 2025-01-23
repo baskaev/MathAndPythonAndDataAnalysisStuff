@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шпаргалка</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.2; margin: 0; padding: 5px; }
+        .topic { margin-bottom: 5px; }
+        .equation { font-family: "Courier New", monospace; background-color: #f0f0f0; padding: 2px; border-radius: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="topic"><strong>1. Классификация уравнений:</strong> Гиперболические (волны), параболические (тепло), эллиптические (Лаплас).</div>
+<div class="topic"><strong>2. Канонические формы:</strong> Гиперболическое: <span class="equation">u<sub>xx</sub> - u<sub>tt</sub> = 0</span>, параболическое: <span class="equation">u<sub>t</sub> - u<sub>xx</sub> = 0</span>, эллиптическое: <span class="equation">u<sub>xx</sub> + u<sub>yy</sub> = 0</span>.</div>
+<div class="topic"><strong>3. Уравнение струны:</strong> <span class="equation">u<sub>tt</sub> = a<sup>2</sup> u<sub>xx</sub></span>, решение: <span class="equation">u(x,t) = X(x)T(t)</span>.</div>
+<div class="topic"><strong>4. Уравнение теплопроводности:</strong> <span class="equation">u<sub>t</sub> = a<sup>2</sup> u<sub>xx</sub></span>, решение: <span class="equation">u(x,t) = X(x)T(t)</span>.</div>
+<div class="topic"><strong>5. Уравнение Лапласа:</strong> <span class="equation">Δu = 0</span>, в полярных координатах: <span class="equation">u(r,θ) = Σ (A<sub>n</sub> r<sup>n</sup> + B<sub>n</sub> r<sup>-n</sup>)(C<sub>n</sub> cos(nθ) + D<sub>n</sub> sin(nθ))</span>.</div>
+<div class="topic"><strong>6. Задача Коши:</strong> Для струны: <span class="equation">u(x,0) = φ(x)</span>, <span class="equation">u<sub>t</sub>(x,0) = ψ(x)</span>. Для тепла: <span class="equation">u(x,0) = φ(x)</span>.</div>
+<div class="topic"><strong>7. Краевые задачи:</strong> Дирихле (значения на границе), Неймана (производные на границе), смешанная.</div>
+<div class="topic"><strong>8. Метод разделения переменных:</strong> <span class="equation">u(x,t) = X(x)T(t)</span>.</div>
+<div class="topic"><strong>9. Фундаментальные решения:</strong> Лаплас: <span class="equation">Φ(x) = 1/|x|<sup>n-2</sup></span>, тепло: <span class="equation">Φ(x,t) = 1/(4πt)<sup>n/2</sup> e<sup>-|x|<sup>2</sup>/4t</sup></span>.</div>
+<div class="topic"><strong>10. Принцип максимума:</strong> Параболические: максимум на границе/начале. Эллиптические: максимум/минимум на границе.</div>
+<div class="topic"><strong>11. Задача Дирихле в круге:</strong> Решение: <span class="equation">u(r,θ) = Σ (A<sub>n</sub> r<sup>n</sup> cos(nθ) + B<sub>n</sub> r<sup>n</sup> sin(nθ))</span>.</div>
+<div class="topic"><strong>12. Формула Пуассона:</strong> <span class="equation">u(r,θ) = (1/2π) ∫<sub>0</sub><sup>2π</sup> (R<sup>2</sup> - r<sup>2</sup>) / (R<sup>2</sup> - 2Rr cos(θ - φ) + r<sup>2</sup>) f(φ) dφ</span>.</div>
+<div class="topic"><strong>13. Теорема Гаусса-Остроградского:</strong> <span class="equation">∫<sub>∂V</sub> F · dS = ∫<sub>V</sub> (∇ · F) dV</span>.</div>
+<div class="topic"><strong>14. Метод спуска:</strong> Сведение многомерных задач к одномерным.</div>
+<div class="topic"><strong>15. Устойчивость:</strong> Малые изменения начальных данных → малые изменения решения.</div>
+<div class="topic"><strong>16. Сферические и цилиндрические координаты:</strong> Используются для задач с симметрией.</div>
+<div class="topic"><strong>17. Теорема о среднем:</strong> Значение гармонической функции в центре сферы = среднее на поверхности.</div>
+<div class="topic"><strong>18. Задача Гурса:</strong> Данные на характеристиках для гиперболических уравнений.</div>
+<div class="topic"><strong>19. Методы ТФКП:</strong> Решение краевых задач с конформными отображениями.</div>
+<div class="topic"><strong>20. Неоднородные уравнения:</strong> Решение через вариацию постоянных или интеграл Дюамеля.</div>
+
+</body>
+</html>

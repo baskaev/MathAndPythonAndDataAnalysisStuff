@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Билет № 2: Уравнения математической физики</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            margin: 15px 0;
+        }
+        .formula {
+            font-size: 1.1em;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .important {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+    <!-- Подключение MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<h2>Билет № 2: Уравнения математической физики</h2>
+
+<h2>1. Канонические формы уравнений различных типов</h2>
+
+<h3>Что такое каноническая форма?</h3>
+<p>Каноническая форма — это упрощенный вид уравнения, к которому можно привести исходное уравнение с помощью замены переменных. Каноническая форма позволяет легче анализировать и решать уравнение.</p>
+
+<h3>Классификация уравнений</h3>
+<p>Уравнения с частными производными второго порядка делятся на три типа:</p>
+<ol>
+    <li><strong>Гиперболические</strong> (\( D > 0 \)),</li>
+    <li><strong>Параболические</strong> (\( D = 0 \)),</li>
+    <li><strong>Эллиптические</strong> (\( D < 0 \)).</li>
+</ol>
+
+<h3>1.1. Каноническая форма гиперболического уравнения</h3>
+<p>Гиперболические уравнения описывают волновые процессы. Их каноническая форма:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial \xi \partial \eta} = F\left(\xi, \eta, u, \frac{\partial u}{\partial \xi}, \frac{\partial u}{\partial \eta}\right).
+    \]
+</p>
+<p>Здесь \( \xi \) и \( \eta \) — новые переменные, полученные после замены.</p>
+
+<p><strong>Пример: Волновое уравнение</strong></p>
+<div class="example">
+    <p>Исходное уравнение:</p>
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial t^2} - c^2 \frac{\partial^2 u}{\partial x^2} = 0.
+        \]
+    </p>
+    <p>Сделаем замену переменных:</p>
+    <p class="formula">
+        \[
+        \xi = x - ct, \quad \eta = x + ct.
+        \]
+    </p>
+    <p>Тогда уравнение примет каноническую форму:</p>
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial \xi \partial \eta} = 0.
+        \]
+    </p>
+</div>
+
+<h3>1.2. Каноническая форма параболического уравнения</h3>
+<p>Параболические уравнения описывают процессы теплопроводности и диффузии. Их каноническая форма:</p>
+<p class="formula">
+    \[
+    \frac{\partial u}{\partial \xi} = \frac{\partial^2 u}{\partial \eta^2} + F\left(\xi, \eta, u, \frac{\partial u}{\partial \eta}\right).
+    \]
+</p>
+
+<p><strong>Пример: Уравнение теплопроводности</strong></p>
+<div class="example">
+    <p>Исходное уравнение:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}.
+        \]
+    </p>
+    <p>Сделаем замену переменных:</p>
+    <p class="formula">
+        \[
+        \xi = t, \quad \eta = x.
+        \]
+    </p>
+    <p>Уравнение уже имеет каноническую форму:</p>
+    <p class="formula">
+        \[
+        \frac{\partial u}{\partial \xi} = \alpha \frac{\partial^2 u}{\partial \eta^2}.
+        \]
+    </p>
+</div>
+
+<h3>1.3. Каноническая форма эллиптического уравнения</h3>
+<p>Эллиптические уравнения описывают стационарные процессы. Их каноническая форма:</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial \xi^2} + \frac{\partial^2 u}{\partial \eta^2} = F\left(\xi, \eta, u, \frac{\partial u}{\partial \xi}, \frac{\partial u}{\partial \eta}\right).
+    \]
+</p>
+
+<p><strong>Пример: Уравнение Лапласа</strong></p>
+<div class="example">
+    <p>Исходное уравнение:</p>
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+        \]
+    </p>
+    <p>Сделаем замену переменных:</p>
+    <p class="formula">
+        \[
+        \xi = x, \quad \eta = y.
+        \]
+    </p>
+    <p>Уравнение уже имеет каноническую форму:</p>
+    <p class="formula">
+        \[
+        \frac{\partial^2 u}{\partial \xi^2} + \frac{\partial^2 u}{\partial \eta^2} = 0.
+        \]
+    </p>
+</div>
+
+<h2>2. Вывод уравнения колебаний струны</h2>
+
+<h3>Что такое струна?</h3>
+<p>Струна — это тонкая, гибкая, упругая нить, которая может колебаться. Колебания струны описываются волновым уравнением.</p>
+
+<h3>Физические предположения:</h3>
+<ol>
+    <li>Струна однородная (плотность \( \rho \) постоянна).</li>
+    <li>Натяжение \( T \) постоянно вдоль струны.</li>
+    <li>Отклонения струны малы, поэтому углы наклона малы.</li>
+</ol>
+
+<h3>Шаг 1: Уравнение движения</h3>
+<p>Рассмотрим малый элемент струны длиной \( \Delta x \). На этот элемент действуют силы натяжения \( T \) на концах.</p>
+
+<p><strong>1. Горизонтальные силы:</strong></p>
+<ul>
+    <li>На левом конце: \( T \cos \alpha_1 \).</li>
+    <li>На правом конце: \( -T \cos \alpha_2 \).</li>
+</ul>
+<p>Так как углы \( \alpha_1 \) и \( \alpha_2 \) малы, \( \cos \alpha \approx 1 \), поэтому горизонтальные силы компенсируют друг друга.</p>
+
+<p><strong>2. Вертикальные силы:</strong></p>
+<ul>
+    <li>На левом конце: \( T \sin \alpha_1 \).</li>
+    <li>На правом конце: \( -T \sin \alpha_2 \).</li>
+</ul>
+<p>Так как углы малы, \( \sin \alpha \approx \tan \alpha = \frac{\partial u}{\partial x} \).</p>
+<p>Сумма вертикальных сил:</p>
+<p class="formula">
+    \[
+    T \left( \frac{\partial u}{\partial x} \bigg|_{x + \Delta x} - \frac{\partial u}{\partial x} \bigg|_x \right).
+    \]
+</p>
+
+<p><strong>3. Ускорение элемента струны:</strong></p>
+<p>По второму закону Ньютона:</p>
+<p class="formula">
+    \[
+    \rho \Delta x \frac{\partial^2 u}{\partial t^2} = T \left( \frac{\partial u}{\partial x} \bigg|_{x + \Delta x} - \frac{\partial u}{\partial x} \bigg|_x \right).
+    \]
+</p>
+
+<p><strong>4. Переход к пределу:</strong></p>
+<p>При \( \Delta x \to 0 \):</p>
+<p class="formula">
+    \[
+    \rho \frac{\partial^2 u}{\partial t^2} = T \frac{\partial^2 u}{\partial x^2}.
+    \]
+</p>
+
+<p><strong>5. Волновое уравнение:</strong></p>
+<p>Разделим на \( \rho \) и обозначим \( c^2 = \frac{T}{\rho} \):</p>
+<p class="formula">
+    \[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}.
+    \]
+</p>
+<p>Это и есть <strong>волновое уравнение</strong>.</p>
+
+<h3>Шаг 2: Граничные и начальные условия</h3>
+<p><strong>1. Граничные условия:</strong></p>
+<ul>
+    <li>Если струна закреплена на концах \( x = 0 \) и \( x = L \):
+        <p class="formula">
+            \[
+            u(0, t) = 0, \quad u(L, t) = 0.
+            \]
+        </p>
+    </li>
+</ul>
+
+<p><strong>2. Начальные условия:</strong></p>
+<ul>
+    <li>Начальное отклонение струны:
+        <p class="formula">
+            \[
+            u(x, 0) = f(x).
+            \]
+        </p>
+    </li>
+    <li>Начальная скорость струны:
+        <p class="formula">
+            \[
+            \frac{\partial u}{\partial t}(x, 0) = g(x).
+            \]
+        </p>
+    </li>
+</ul>
+
+<h3>Шаг 3: Решение волнового уравнения</h3>
+<p>Решение волнового уравнения можно найти методом разделения переменных. Предположим, что решение имеет вид:</p>
+<p class="formula">
+    \[
+    u(x, t) = X(x) T(t).
+    \]
+</p>
+<p>Подставим в волновое уравнение:</p>
+<p class="formula">
+    \[
+    X(x) T''(t) = c^2 X''(x) T(t).
+    \]
+</p>
+<p>Разделим на \( X(x) T(t) \):</p>
+<p class="formula">
+    \[
+    \frac{T''(t)}{c^2 T(t)} = \frac{X''(x)}{X(x)} = -\lambda.
+    \]
+</p>
+<p>Получаем два обыкновенных дифференциальных уравнения:</p>
+<ol>
+    <li>Для \( X(x) \):
+        <p class="formula">
+            \[
+            X''(x) + \lambda X(x) = 0.
+            \]
+        </p>
+    </li>
+    <li>Для \( T(t) \):
+        <p class="formula">
+            \[
+            T''(t) + \lambda c^2 T(t) = 0.
+            \]
+        </p>
+    </li>
+</ol>
+<p>Решив эти уравнения, можно найти общее решение.</p>
+
+<h2>Итог</h2>
+<p>1. <strong>Канонические формы уравнений:</strong></p>
+<ul>
+    <li>Гиперболические: \( \frac{\partial^2 u}{\partial \xi \partial \eta} = F \).</li>
+    <li>Параболические: \( \frac{\partial u}{\partial \xi} = \frac{\partial^2 u}{\partial \eta^2} + F \).</li>
+    <li>Эллиптические: \( \frac{\partial^2 u}{\partial \ξ^2} + \frac{\partial^2 u}{\partial \eta^2} = F \).</li>
+</ul>
+
+<p>2. <strong>Вывод уравнения колебаний струны:</strong></p>
+<ul>
+    <li>Волновое уравнение: \( \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} \).</li>
+    <li>Граничные и начальные условия.</li>
+    <li>Решение методом разделения переменных.</li>
+</ul>
+
+
+</body>
+</html>
