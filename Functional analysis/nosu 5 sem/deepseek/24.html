@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответы на вопросы по функциональному анализу (22-24)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 16px;
+        }
+        .question {
+            margin-bottom: 30px;
+        }
+        .definition {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .example {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="question">
+    <p><span class="definition">22. Предгильбертовы пространства</span></p>
+    <p>
+        <span class="definition">Предгильбертово пространство</span> — это линейное пространство \( H \), на котором задано скалярное произведение \( \langle \cdot, \cdot \rangle \). Скалярное произведение — это функция \( \langle \cdot, \cdot \rangle: H \times H \to \mathbb{C} \) (или \( \mathbb{R} \)), удовлетворяющая следующим свойствам:
+        <ol>
+            <li>Линейность по первому аргументу: \( \langle \alpha x + \beta y, z \rangle = \alpha \langle x, z \rangle + \beta \langle y, z \rangle \).</li>
+            <li>Сопряжённая симметрия: \( \langle x, y \rangle = \overline{\langle y, x \rangle} \).</li>
+            <li>Положительная определённость: \( \langle x, x \rangle \geq 0 \), причём \( \langle x, x \rangle = 0 \) только если \( x = 0 \).</li>
+        </ol>
+    </p>
+    <p>
+        <strong>Норма в предгильбертовом пространстве:</strong> Норма элемента \( x \) определяется через скалярное произведение:
+        \[
+        \|x\| = \sqrt{\langle x, x \rangle}.
+        \]
+    </p>
+    <div class="example">
+        <strong>Пример:</strong> Пространство \( \mathbb{R}^n \) с обычным скалярным произведением:
+        \[
+        \langle x, y \rangle = \sum_{i=1}^n x_i y_i
+        \]
+        является предгильбертовым пространством. Норма вектора \( x \) в этом пространстве:
+        \[
+        \|x\| = \sqrt{x_1^2 + x_2^2 + \dots + x_n^2}.
+        \]
+    </div>
+</div>
+
+<div class="question">
+    <p><span class="definition">23. Гильбертовы пространства</span></p>
+    <p>
+        <span class="definition">Гильбертово пространство</span> — это полное предгильбертово пространство. То есть, это пространство, в котором любая фундаментальная последовательность сходится к элементу этого пространства.
+    </p>
+    <p>
+        <strong>Свойства гильбертовых пространств:</strong>
+        <ol>
+            <li>Гильбертово пространство является банаховым пространством с нормой, определённой через скалярное произведение.</li>
+            <li>В гильбертовом пространстве справедливо равенство параллелограмма:
+                \[
+                \|x + y\|^2 + \|x - y\|^2 = 2(\|x\|^2 + \|y\|^2).
+                \]
+            </li>
+            <li>В гильбертовом пространстве существует ортогональный базис.</li>
+        </ol>
+    </p>
+    <div class="example">
+        <strong>Пример:</strong> Пространство \( L^2[0, 1] \) — это пространство функций, квадрат которых интегрируем на отрезке \( [0, 1] \). Скалярное произведение в \( L^2[0, 1] \) задаётся формулой:
+        \[
+        \langle f, g \rangle = \int_0^1 f(x) \overline{g(x)} \, dx.
+        \]
+        Это пространство является гильбертовым, так как оно полно относительно нормы:
+        \[
+        \|f\| = \sqrt{\int_0^1 |f(x)|^2 \, dx}.
+        \]
+    </div>
+</div>
+
+<div class="question">
+    <p><span class="definition">24. Понятие ортогональности и её свойства</span></p>
+    <p>
+        <span class="definition">Ортогональность</span> — это понятие, определённое в предгильбертовом пространстве. Два вектора \( x \) и \( y \) называются ортогональными (\( x \perp y \)), если их скалярное произведение равно нулю:
+        \[
+        \langle x, y \rangle = 0.
+        \]
+    </p>
+    <p>
+        <strong>Свойства ортогональности:</strong>
+        <ol>
+            <li>Теорема Пифагора: Если \( x \perp y \), то \( \|x + y\|^2 = \|x\|^2 + \|y\|^2 \).</li>
+            <li>Ортогональная система векторов линейно независима.</li>
+            <li>Ортогональное дополнение: Для любого подпространства \( M \subset H \) существует ортогональное дополнение \( M^\perp \), состоящее из всех векторов, ортогональных каждому вектору из \( M \).</li>
+        </ol>
+    </p>
+    <div class="example">
+        <strong>Пример:</strong> В пространстве \( \mathbb{R}^3 \) векторы \( x = (1, 0, 0) \) и \( y = (0, 1, 0) \) ортогональны, так как их скалярное произведение:
+        \[
+        \langle x, y \rangle = 1 \cdot 0 + 0 \cdot 1 + 0 \cdot 0 = 0.
+        \]
+        Согласно теореме Пифагора:
+        \[
+        \|x + y\|^2 = \|(1, 1, 0)\|^2 = 1^2 + 1^2 + 0^2 = 2,
+        \]
+        что равно \( \|x\|^2 + \|y\|^2 = 1 + 1 = 2 \).
+    </div>
+</div>
+
+</body>
+</html>
